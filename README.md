@@ -24,6 +24,27 @@ g_chi -s CTD.pdb -f CDT.pdb -omega
 xmgrace histo-omegaPro.xvg
 ```
 
+* run pdb2gmx, put protein into a dodecahedral box and add water 
+
+```
+pdb2gmx -f CTD.pdb -o init.gro -p init.top -ignh -ter -vsite hydrogens -v #CHARMM22STAR
+editcomf -f init.gro -o editconf.gro -bt dodecahedron -d 1.5 -center 0 0 0
+genbox -cp -editconf.gro -cs spc216 -o genbox.gro -p init.top
+```
+
+* Run first energy minimization 
+
+```
+grompp -f em.md -c genbox.gro -p init.top -o em.tpr
+mdrun -v -s em.tpr
+```
+
+* add ions
+
+```
+genion -s em.tpr -conc 0.15 -o genbox_genion.pdb -neutral -p init.top
+```
+
 * Energy minimization
 
 ```
@@ -128,7 +149,23 @@ mdrun -v -deffnm em
 ```
 
 * created pr.mdp which will be used to run the simulation
-* 
+* grompp the file and run simulation with settings defined in pr.mdp
+
+
+```
+grompp -f pr.mdp -p topol.top -c ions.gro -o pr.tpr
+mdrun -v deffnm pr
+```
+
+* commands did not work, presumably because something with the deffnm flag did not work properly
+* rerun mdrun this time using the following settings
+
+```
+mdrun -v -s em.tpr -c em.pdb
+grompp -f pr.mdp -p topol.top -c em.gro -o pr.tpr
+``` 
+
+
 
 
 
