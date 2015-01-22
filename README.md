@@ -243,7 +243,14 @@ xmgrace rmsf.xvg
 
 ```
 do_dssp -s md.tpr -f traj.part0001.xtc -ver 1
-
+xmp2ps -f ss.xpm
+gv plot.eps
 ```
 
+![Secondary Structures](https://raw.githubusercontent.com/sagar87/MD/master/220115/secondary_structure.png)
 
+* Radius of Gyration
+
+```
+g_gyrate -s md.tpr -f traj.part0001.xtc 
+```
