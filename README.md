@@ -254,3 +254,11 @@ gv plot.eps
 ```
 g_gyrate -s md.tpr -f traj.part0001.xtc 
 ```
+
+![Radius of gyration](https://raw.githubusercontent.com/sagar87/MD/master/220115/gyrate_berendsen.png)
+
+* Number of H-bonds between protein and protein itself
+
+```
+g_hbond -s md.tpr -f traj.part0001.xtc  -num hbnum.xvg
+```
