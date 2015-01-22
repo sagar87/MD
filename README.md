@@ -237,5 +237,13 @@ g_rmsf -s md.tpr -f traj.part0001.xtc -o rmsf.xvg -oq bfaq.pdb
 xmgrace rmsf.xvg
 ```
 
+![RMSF of Cα atoms](https://raw.githubusercontent.com/sagar87/MD/master/220115/rmsf_berendsen.png)
+
+* Analysis of Secondary structures
+
+```
+do_dssp -s md.tpr -f traj.part0001.xtc -ver 1
+
+```
 
 
