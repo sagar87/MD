@@ -217,7 +217,7 @@ distance in the mdp file if you are really sure that is the reason.
 * Connect via ssh
 
 ```
-ssh hvoehri@hvoehri.mpibpc.intern
+ssh -XY hvoehri@hvoehri.mpibpc.intern
 ```
 
 
@@ -262,3 +262,6 @@ g_gyrate -s md.tpr -f traj.part0001.xtc
 ```
 g_hbond -s md.tpr -f traj.part0001.xtc  -num hbnum.xvg
 ```
+
+![](https://raw.githubusercontent.com/sagar87/MD/master/220115/hbond_protein_protein_berendsen.png)
+ 
