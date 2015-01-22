@@ -1,3 +1,5 @@
+# Labreport
+
 ## 20.01.2015
 
 ### Usefull stuff
@@ -11,7 +13,7 @@ vi .bashrc
 
 * then add the path bash should load each time
 
-### protocoll
+### Simulation of two heptads
 
 * 2 hepad long peptide was created using UCSF chimera
 	* proline to ϕ = -80 and ψ = 160 (fixes prolines to trans configuration)
@@ -81,11 +83,9 @@ cp md.tpr ../berendsen/
 
 ``
 
+## 21.01.15
 
-
-### 21.01.15
-
-#### Tutorial from the Book
+### Tutorial from the Book
 
 * Download the PDB file 6BPTI
 * Preprocessing with grompp 
@@ -163,7 +163,71 @@ mdrun -v deffnm pr
 ```
 mdrun -v -s em.tpr -c em.pdb
 grompp -f pr.mdp -p topol.top -c em.gro -o pr.tpr
+mdrun -v -s pr.tpr -c ions.pdb
 ``` 
+
+* error in the simulation
+
+
+```
+Off! I just backed up step5b.pdb to ./#step5b.pdb.1#
+
+Back Off! I just backed up step5c.pdb to ./#step5c.pdb.1#
+Wrote pdb files with previous and current coordinates
+
+WARNING: Listed nonbonded interaction between particles 143 and 164
+at distance 3f which is larger than the table limit 3f nm.
+
+This is likely either a 1,4 interaction, or a listed interaction inside
+a smaller molecule you are decoupling during a free energy calculation.
+Since interactions at distances beyond the table cannot be computed,
+they are skipped until they are inside the table limit again. You will
+only see this message once, even if it occurs for several interactions.
+
+IMPORTANT: This should not happen in a stable simulation, so there is
+probably something wrong with your system. Only change the table-extension
+distance in the mdp file if you are really sure that is the reason.
+
+
+
+WARNING: Listed nonbonded interaction between particles 532 and 548
+at distance 3f which is larger than the table limit 3f nm.
+
+This is likely either a 1,4 interaction, or a listed interaction inside
+a smaller molecule you are decoupling during a free energy calculation.
+Since interactions at distances beyond the table cannot be computed,
+they are skipped until they are inside the table limit again. You will
+only see this message once, even if it occurs for several interactions.
+
+IMPORTANT: This should not happen in a stable simulation, so there is
+probably something wrong with your system. Only change the table-extension
+distance in the mdp file if you are really sure that is the reason.
+```
+
+
+## 22.01.15
+
+### Tutorial from the book
+
+* Rerun the simulation from the beginning, this time using different folders for each step of the simulation
+* simulation started
+
+### Trajectory Analysis of simulation from 20.01.15
+
+* Connect via ssh
+
+```
+ssh hvoehri@hvoehri.mpibpc.intern
+```
+
+
+* RMSD calculation performed as follows, selecting two times 1 for protein
+
+```
+g_rms -s ../em.tpr -f traj.part0001.xtc
+ 
+```
+
 
 
 
