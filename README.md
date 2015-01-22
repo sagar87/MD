@@ -225,12 +225,17 @@ ssh hvoehri@hvoehri.mpibpc.intern
 
 ```
 g_rms -s ../em.tpr -f traj.part0001.xtc
- 
+xmgrace rmsd.xvg
 ```
 
+![RMSD](https://raw.githubusercontent.com/sagar87/MD/master/220115/rmsd_berendsen.png)
 
+* Comparing fluctuations of Cα-atoms with g_rmsf tool
 
-
+```
+g_rmsf -s md.tpr -f traj.part0001.xtc -o rmsf.xvg -oq bfaq.pdb
+xmgrace rmsf.xvg
+```
 
 
 
