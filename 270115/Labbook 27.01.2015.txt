@@ -1,0 +1,153 @@
+## 27.01.2015 
+
+### Rerun simulation with berendsen equilibrated CTD
+
+* Grompping with sim.mdp
+
+```
+grompp -f sim.mdp -c confout.part0001.gro -p topol.top -o sim.tpr
+```
+
+* Leads to the Error observed before
+
+
+```
+Program grompp, VERSION 4.6.6-dev-20140325-693d2e6-unknown
+Source code file: /tmp/git-gromacs-4-6-department/src/kernel/calc_verletbuf.c, line: 231
+
+Fatal error:
+In molecule type 'Protein_chain_A' Virtual site 3fad construction involves atom 5, which is a virtual site of equal or high complexity. This is not supported.
+For more information and tips for troubleshooting, please check the GROMACS
+website at http://www.gromacs.org/Documentation/Errors
+
+```
+
+### Retry to run the simulation
+
+
+* Create a new folder and copy CTD.pdb and charmm22star.ff folder over
+
+```
+mkdir 270115_CTD
+cp 260115_CTD/CTD.pdb 270115_CTD/
+cd 270115_CTD/
+cp -r ../260115_CTD/charmm22star.ff/ ./
+```
+
+* Create topology, position restraint file, and a position restraint file
+    * Do not use virtual sites
+* Create box and ions
+    
+
+```
+pdb2gmx -f CTD.pdb -ignh -ter
+genbox -cp box.gro -cs spc216.gro -p topol.top -o solvated.gro
+editconf -f conf.gro -o box.gro -bt dodecahedron -d 1.5 -center 0 0 0
+genbox -cp box.gro -cs spc216.gro -p topol.top -o solvated.gro
+touch ions.mdp
+grompp -f ions.mdp -p topol.top -c solvated.gro -o ions.tpr
+genion -s ions.tpr -neutral -conc 0.15 -p topol.top -o ions.gro
+
+```
+
+* Run energy minimization
+
+
+```
+grompp -f em.mdp -p topol.top -c ions.gro -o em.tpr
+mdrun -v -deffnm em
+```
+
+* Check energy minimization
+
+```
+g_energy -f em.part0001.edr -o potential.xvg
+```
+
+![EM](https://github.com/sagar87/MD/blob/master/270115/CTD/potential_.png)
+
+
+* Run berendsen equilibration
+
+
+```
+grompp -f berendsen.mdp -p topol.top -c em.part0001.gro -o berendsen.tpr
+ssh owl3
+g_submit -s berendsen.tpr
+```
+
+* Recover edr file (was overwritten by subsequent simulation)
+* Check temperature, pressure and density
+
+
+```
+mv \#ener.part0001.edr.1# berendsen.edr
+g_energy -f berendsen.edr -o temp.xvg
+g_energy -f berendsen.edr -o press.xvg
+g_energy -f berendsen.edr -o dens.xvg
+
+```
+
+![Temperature](https://github.com/sagar87/MD/blob/master/270115/CTD/temp.xvg)
+
+![Pressure](https://github.com/sagar87/MD/blob/master/270115/CTD/pressure_.png)
+
+![Density](https://github.com/sagar87/MD/blob/master/270115/CTD/density_.png)
+
+
+
+* Run second equilibration
+
+```
+grompp -f sim.mdp -p topol.top -c confout.part0001.gro -o sim.tpr
+ssh owl3
+g_submit -s sim.tpr
+
+```
+
+### Check Villin simulation
+
+* Still running
+
+### Analysis of 1AKI.pdb
+
+* Write R-script to visualize data better
+* Analyse Energy Minimization → Energy was successfully minimized
+
+```
+g_energy -f em.edr -o potential.xvg
+
+```
+
+![Energy after EM](https://github.com/sagar87/MD/blob/master/270115/1AKB/potential_.png)
+
+* Analysis NVT (constant number of particle, volume and temperature) ensemble → canonical
+    * Temperature reaches the target value (300 K) quickly and remains stable
+
+![Temperature](https://github.com/sagar87/MD/blob/master/270115/1AKB/temperature_.png)
+
+* Analysis NPT (constant number of particles, pressure and temperature) → isothermal-isobaric
+
+![Pressure (NPT Ensemble)](https://github.com/sagar87/MD/blob/master/270115/1AKB/pressure_.png)
+
+![Density (NPT Ensemble)](https://github.com/sagar87/MD/blob/master/270115/1AKB/density_.png)
+
+* Analysis of the MD → correct trajectory
+
+```
+trjconv -s md/md.tpr -f traj.part0001.xtc -o md_noPBC.xtc -pbc mol -ur compact
+
+```
+
+* Calculate the RMSD, select 4 for backbone for least squares fit and group for RMSD calculations 
+    * tu → time unit ns
+    * RMSD against crystal structure
+    * 
+
+```
+g_rms -s md/md.tpr -f md_noPBC.xtc -o rmsd.xvg -tu ns
+g_rms -s em.tpr -f md_noPBC.xtc -o rmsd_xray.xvg -tu ns
+```
+
+![RMSD](https://github.com/sagar87/MD/blob/master/270115/1AKB/rmsd_.png) ![RMSD Xray](https://github.com/sagar87/MD/blob/master/270115/1AKB/rmsd_xray.png)
+
