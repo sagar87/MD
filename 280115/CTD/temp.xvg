@@ -1,0 +1,40 @@
+# This file was created Wed Jan 28 14:15:01 2015
+# by the following command:
+# g_energy -f ener.part0001.edr -o temp.xvg 
+#
+# g_energy is part of G R O M A C S:
+#
+# Glycine aRginine prOline Methionine Alanine Cystine Serine
+#
+@    title "Gromacs Energies"
+@    xaxis  label "Time (ps)"
+@    yaxis  label "(K)"
+@TYPE xy
+@ view 0.15, 0.15, 0.75, 0.85
+@ legend on
+@ legend box on
+@ legend loctype view
+@ legend 0.78, 0.8
+@ legend length 2
+@ s0 legend "Temperature"
+    0.000000  301.322815
+   50.000000  301.598511
+  100.000000  299.193848
+  150.000000  298.916870
+  200.000000  300.272156
+  250.000000  298.472687
+  300.000000  300.737640
+  350.000000  298.570404
+  400.000000  295.481995
+  450.000000  300.623779
+  500.000000  296.890442
+  550.000000  300.998718
+  600.000000  301.755188
+  650.000000  298.444519
+  700.000000  298.411224
+  750.000000  297.571777
+  800.000000  301.766815
+  850.000000  298.059265
+  900.000000  302.391876
+  950.000000  297.568909
+ 1000.000000  302.930176

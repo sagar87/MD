@@ -1,0 +1,40 @@
+# This file was created Wed Jan 28 14:15:19 2015
+# by the following command:
+# g_energy -f ener.part0001.edr -o press.xvg 
+#
+# g_energy is part of G R O M A C S:
+#
+# Giant Rising Ordinary Mutants for A Clerical Setup
+#
+@    title "Gromacs Energies"
+@    xaxis  label "Time (ps)"
+@    yaxis  label "(bar)"
+@TYPE xy
+@ view 0.15, 0.15, 0.75, 0.85
+@ legend on
+@ legend box on
+@ legend loctype view
+@ legend 0.78, 0.8
+@ legend length 2
+@ s0 legend "Pressure"
+    0.000000  -3471.279541
+   50.000000  304.701447
+  100.000000   31.120321
+  150.000000  -99.374489
+  200.000000  -77.637604
+  250.000000    7.683378
+  300.000000   88.706085
+  350.000000  -247.958008
+  400.000000  -120.710793
+  450.000000  113.282043
+  500.000000   20.750620
+  550.000000  -181.644913
+  600.000000   68.456841
+  650.000000  132.223373
+  700.000000  -90.162956
+  750.000000   -6.953730
+  800.000000   99.582466
+  850.000000  175.199661
+  900.000000  -109.464088
+  950.000000   31.311707
+ 1000.000000  -103.337410

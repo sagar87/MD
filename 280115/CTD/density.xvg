@@ -1,0 +1,40 @@
+# This file was created Wed Jan 28 14:15:39 2015
+# by the following command:
+# g_energy -f ener.part0001.edr -o density.xvg 
+#
+# g_energy is part of G R O M A C S:
+#
+# Gallium Rubidium Oxygen Manganese Argon Carbon Silicon
+#
+@    title "Gromacs Energies"
+@    xaxis  label "Time (ps)"
+@    yaxis  label "(kg/m^3)"
+@TYPE xy
+@ view 0.15, 0.15, 0.75, 0.85
+@ legend on
+@ legend box on
+@ legend loctype view
+@ legend 0.78, 0.8
+@ legend length 2
+@ s0 legend "Density"
+    0.000000  998.582275
+   50.000000  1015.344177
+  100.000000  1014.615540
+  150.000000  1010.658752
+  200.000000  1012.661499
+  250.000000  1012.247986
+  300.000000  1014.843811
+  350.000000  1015.898743
+  400.000000  1014.710754
+  450.000000  1013.240479
+  500.000000  1013.757202
+  550.000000  1012.782471
+  600.000000  1013.449402
+  650.000000  1010.661255
+  700.000000  1012.418457
+  750.000000  1013.899719
+  800.000000  1013.804199
+  850.000000  1013.251709
+  900.000000  1015.965027
+  950.000000  1012.622864
+ 1000.000000  1009.733643
