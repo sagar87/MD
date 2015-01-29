@@ -117,4 +117,132 @@ genbox -cp box.gro -cs spc216.gro -p topol.top -o solvated.gro
 touch ions.mdp
 ```
 
+* Again Error
+
+### Use different protocoll
+
+* Start with PDB with hydrogens and rename the
+    * Change Nm
+* preprocess with amber 99sb-ildn
+
+(....)
+
+
+### Run Simulation with CTD_pymol and vSites but charged Termini   
+
+* Try to use CTD created with Pymol earlier this morning
+    * use NH3+ and COO-
+
+```
+pdb2gmx -f CTD_pymol.pdb -ignh -ter -vsite hydrogens -v
+editconf -f conf.gro -o box.gro -bt dodecahedron -d 1.5 -center 0 0 0
+genbox -cp box.gro -cs spc216.gro -p topol.top -o solvated.gro
+touch ions.mdp
+grompp -f ions.mdp -p topol.top -c solvated.gro -o ions.tpr
+genion -s ions.tpr -neutral -conc 0.15 -p topol.top -o ions.gro
+```
+
+* Run EM
+
+```
+cp topol.top em/
+cp ions.gro em/
+grompp -f em.mdp -p topol.top -c ions.gro -o em.tpr
+mdrun -v -deffnm em
+
+```
+
+* Check EM
+
+![EM](https://github.com/sagar87/MD/raw/master/29012015/potential_pym.png)
+
+* Run equilibration (same mdp as yesterday)
+    * copy eq.mdp over 
+    * copy em.part0001.gro and topology.top into eq/ folder
+
+```
+grompp -f eq.mdp -p topol.top -c em.part0001.gro -o eq.tpr
+ssh owl3
+g_submit -s eq.tpr
+
+```
+
+
+
+
+```
+
+```
+
+
+
+### Run Simulation with old CTD and vSites but charged Termini   
+
+* Create dir *290115_CTD_VS_CT*
+    * *CT* → Charged Termini
+    * *VS* → Virtual sites
+* Copy template folder over
+* Set everything up
+    * NH3+ and COO-
+
+
+```
+pdb2gmx -f CTD.pdb -ignh -ter -vsite hydrogens -v
+editconf -f conf.gro -o box.gro -bt dodecahedron -center 0 0 0 -d 1.5
+genbox -cp box.gro -cs spc216.gro -p topol.top -o solvated.gro
+touch ions.mdp
+grompp -f ions.mdp -p topol.top -c solvated.gro -o ions.tpr
+genion -s ions.tpr -neutral -conc 0.15 -p topol.top -o ions.gro
+cp topol.top ions.gro em/
+```
+
+* Run EM
+
+```
+grompp -f em.mdp -p topol.top -c ions.gro -o em.tpr
+mdrun -v -deffnm em
+
+```
+
+* Check EM
+
+![EM](https://github.com/sagar87/MD/raw/master/29012015/potential_org.png)
+
+* Run EQ
+
+```
+cp em/em.part0001.gro em/topol.top eq/
+cp ~/290115_CTD_Pymol/eq/eq.mdp ./
+grompp -f eq.mdp -p topol.top -c em.part0001.gro -o eq.tpr
+ssh owl3
+g_submit -s eq.tpr
+```
+
+### Run Simulation with old CTD and *NO* vSites and  *uncharged* Termini
+
+* Create dir *290115_CTD_NVT_NCT* 
+* Copy template folder into this folder
+* Change options in sim.mdp and eq.mdp
+    * dt = 0.0002 so it is appropriate for simulation that do not use vsites
+    * hbonds instead of allbonds constraints 
+* Set everything up
+    * NH2 and COOH
+
+
+```
+pdb2gmx -f CTD.pdb -ignh -ter -v
+editconf -f conf.gro -o box.gro -bt dodecahedron -center 0 0 0 -d 1.5
+genbox -cp box.gro -cs spc216.gro -p topol.top -o solvated.gro
+touch ions.mdp
+grompp -f ions.mdp -p topol.top -c solvated.gro -o ions.tpr
+genion -s ions.tpr -neutral -conc 0.15 -p topol.top -o ions.gro
+cp topol.top ions.gro em/
+```
+
+* Run EM
+
+```
+grompp -f em.mdp -p topol.top -c ions.gro -o em.tpr
+mdrun -v -deffnm em
+``
 
