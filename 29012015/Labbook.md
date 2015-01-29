@@ -244,7 +244,7 @@ cp topol.top ions.gro em/
 ```
 grompp -f em.mdp -p topol.top -c ions.gro -o em.tpr
 mdrun -v -deffnm em
-``
+```
 
 * Check EM
 
