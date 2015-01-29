@@ -1,5 +1,7 @@
 ## 29.01.2015
 
+### Simulation with new 2x heptad created in Pymol
+
 * Creat a new 2x CTD-heptad in Pymol 
 
 
@@ -38,9 +40,9 @@ mdrun -v -deffnm em
 
 ```
 
-* Error presumeably due to missing Acetyl and Methyl ends → Create a new peptide that has these modifications
+* Error presumeably due to missing acetyl and methyl ends → Create a new peptide that has these modifications
 
-### Simulation with AcCTDMe
+### Simulation with 2x heptad that has CT-Ac and NT-Me Modification
 
 * Create a New peptide in pymol
     * Select Build → Residue → Acetylgroup
@@ -117,18 +119,17 @@ genbox -cp box.gro -cs spc216.gro -p topol.top -o solvated.gro
 touch ions.mdp
 ```
 
-* Again Error
-
-### Use different protocoll
-
+* Again error → try to fix it 
 * Start with PDB with hydrogens and rename the
     * Change Nm
-* preprocess with amber 99sb-ildn
+* preprocess with amber99sb-ildn
 
 (....)
 
+* Not successful 
 
-### Run Simulation with CTD_pymol and vSites but charged Termini   
+
+### Run Simulation with CTD Pymol, vSites and charged Termini   
 
 * Try to use CTD created with Pymol earlier this morning
     * use NH3+ and COO-
@@ -167,16 +168,7 @@ g_submit -s eq.tpr
 
 ```
 
-
-
-
-```
-
-```
-
-
-
-### Run Simulation with old CTD and vSites but charged Termini   
+### Run Simulation with original CTD, vSites and charged Termini   
 
 * Create dir *290115_CTD_VS_CT*
     * *CT* → Charged Termini
@@ -257,8 +249,7 @@ grompp -f sim.mdp -p topol.top -c confout.part0001.gro -o sim.tpr
 g_submit -s sim.tpr 
 ```
 
-
-### Run Simulation with old CTD and NO vSites and uncharged Termini
+### Run Simulation with original CTD, no vSites and uncharged Termini
 
 * Create dir *290115_CTD_NVT_NCT* 
 * Copy template folder into this folder
@@ -299,8 +290,6 @@ ssh owl3
 g_submit -s eq.tpr
 ```
 
-
-### Run Simulation with old CTD and NO vSites and uncharged Termini
 
 
 
