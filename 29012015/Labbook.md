@@ -243,6 +243,21 @@ g_energy -f ener.part0001.edr -o dens.xvg
 
 ![After EQ](https://github.com/sagar87/MD/raw/master/29012015/dens_CTD_VS_CT.xvg_.png)
 
+
+* Prepare Simulation (copy from eq to sim folder)
+
+```
+cp eq/confout.part0001.gro eq/topol.top sim/
+```
+
+* Run Simulation
+
+```
+grompp -f sim.mdp -p topol.top -c confout.part0001.gro -o sim.tpr
+g_submit -s sim.tpr 
+```
+
+
 ### Run Simulation with old CTD and NO vSites and uncharged Termini
 
 * Create dir *290115_CTD_NVT_NCT* 
@@ -275,7 +290,7 @@ mdrun -v -deffnm em
 
 ![EM](https://github.com/sagar87/MD/raw/master/29012015/potential_CTD_ORG_NVT_NCT.png)
 
-* Run SIM
+* Run EQ
 
 ```
 cp em/em.part0001.gro em/topol.top eq/
