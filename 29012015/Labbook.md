@@ -168,6 +168,23 @@ g_submit -s eq.tpr
 
 ```
 
+* Check EQ
+
+```
+               Core t (s)   Wall t (s)        (%)
+       Time:    29608.680     9872.508      299.9
+                         2h44:32
+                 (ns/day)    (hour/ns)
+Performance:        8.752        2.742
+Finished mdrun on node 0 Thu Jan 29 17:53:43 2015
+```
+
+![After EQ CTD (Pymol)](https://github.com/sagar87/MD/raw/master/29012015/temp_pym_VT_CT.xvg_.png)
+
+![After EQ CTD (Pymol)](https://github.com/sagar87/MD/blob/master/29012015/press_pym_VT_CT.xvg_.png)
+
+![After EQ CTD (Pymol)](https://github.com/sagar87/MD/blob/master/29012015/dens_pym_VT_CT.xvg_.png)
+
 ### Run Simulation with original CTD, vSites and charged Termini   
 
 * Create dir *290115_CTD_VS_CT*
@@ -289,6 +306,7 @@ grompp -f eq.mdp -p topol.top -c em.part0001.gro -o eq.tpr
 ssh owl3
 g_submit -s eq.tpr
 ```
+
 
 
 
