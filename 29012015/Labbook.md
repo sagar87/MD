@@ -246,3 +246,15 @@ grompp -f em.mdp -p topol.top -c ions.gro -o em.tpr
 mdrun -v -deffnm em
 ``
 
+* Check EM
+
+![EM](https://github.com/sagar87/MD/blob/master/29012015/potential_CTD_ORG_NVT_NCT.png)
+
+* Run SIM
+
+```
+cp em/em.part0001.gro em/topol.top eq/
+grompp -f eq.mdp -p topol.top -c em.part0001.gro -o eq.tpr
+ssh owl3
+g_submit -s eq.tpr
+```
