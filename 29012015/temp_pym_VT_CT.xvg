@@ -1,0 +1,40 @@
+# This file was created Thu Jan 29 18:13:12 2015
+# by the following command:
+# g_energy -f ener.part0001.edr -o temp_pym_VT_CT.xvg 
+#
+# g_energy is part of G R O M A C S:
+#
+# Georgetown Riga Oslo Madrid Amsterdam Chisinau Stockholm
+#
+@    title "Gromacs Energies"
+@    xaxis  label "Time (ps)"
+@    yaxis  label "(K)"
+@TYPE xy
+@ view 0.15, 0.15, 0.75, 0.85
+@ legend on
+@ legend box on
+@ legend loctype view
+@ legend 0.78, 0.8
+@ legend length 2
+@ s0 legend "Temperature"
+    0.000000  301.393280
+   50.000000  300.948578
+  100.000000  300.065308
+  150.000000  299.387573
+  200.000000  301.065216
+  250.000000  297.596222
+  300.000000  298.388336
+  350.000000  301.706543
+  400.000000  297.136169
+  450.000000  299.127136
+  500.000000  298.444824
+  550.000000  301.362427
+  600.000000  303.567719
+  650.000000  298.406097
+  700.000000  296.491058
+  750.000000  299.753937
+  800.000000  299.911255
+  850.000000  296.984985
+  900.000000  302.144440
+  950.000000  299.024628
+ 1000.000000  299.845337

@@ -1,0 +1,40 @@
+# This file was created Thu Jan 29 18:13:28 2015
+# by the following command:
+# g_energy -f ener.part0001.edr -o press_pym_VT_CT.xvg 
+#
+# g_energy is part of G R O M A C S:
+#
+# Georgetown Riga Oslo Madrid Amsterdam Chisinau Stockholm
+#
+@    title "Gromacs Energies"
+@    xaxis  label "Time (ps)"
+@    yaxis  label "(bar)"
+@TYPE xy
+@ view 0.15, 0.15, 0.75, 0.85
+@ legend on
+@ legend box on
+@ legend loctype view
+@ legend 0.78, 0.8
+@ legend length 2
+@ s0 legend "Pressure"
+    0.000000  -3693.897705
+   50.000000   58.606487
+  100.000000  -166.864853
+  150.000000  -21.306602
+  200.000000  -155.398422
+  250.000000  -352.750946
+  300.000000  -92.091774
+  350.000000  -28.755522
+  400.000000  -18.890869
+  450.000000  -172.584656
+  500.000000  -220.754318
+  550.000000  -170.260147
+  600.000000  124.403564
+  650.000000  -32.711048
+  700.000000  160.389145
+  750.000000  162.901260
+  800.000000  -106.515404
+  850.000000  -70.484116
+  900.000000   89.311745
+  950.000000  179.400757
+ 1000.000000   61.641891

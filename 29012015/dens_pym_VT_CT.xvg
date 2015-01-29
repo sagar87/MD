@@ -1,0 +1,40 @@
+# This file was created Thu Jan 29 18:13:54 2015
+# by the following command:
+# g_energy -f ener.part0001.edr -o dens_pym_VT_CT.xvg 
+#
+# g_energy is part of G R O M A C S:
+#
+# Gromacs Runs One Microsecond At Cannonball Speeds
+#
+@    title "Gromacs Energies"
+@    xaxis  label "Time (ps)"
+@    yaxis  label "(kg/m^3)"
+@TYPE xy
+@ view 0.15, 0.15, 0.75, 0.85
+@ legend on
+@ legend box on
+@ legend loctype view
+@ legend 0.78, 0.8
+@ legend length 2
+@ s0 legend "Density"
+    0.000000  993.344849
+   50.000000  1018.861572
+  100.000000  1014.152832
+  150.000000  1012.821045
+  200.000000  1015.474609
+  250.000000  1016.692810
+  300.000000  1015.017578
+  350.000000  1016.118713
+  400.000000  1014.765503
+  450.000000  1016.843933
+  500.000000  1014.466980
+  550.000000  1016.188904
+  600.000000  1013.511353
+  650.000000  1014.601135
+  700.000000  1011.653503
+  750.000000  1014.980347
+  800.000000  1016.042664
+  850.000000  1008.538452
+  900.000000  1010.402954
+  950.000000  1010.873413
+ 1000.000000  1013.430054
