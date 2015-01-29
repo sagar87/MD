@@ -77,7 +77,7 @@ cp topol.top eq
 
 ```
 
-* Run Equilibration
+* Run Equilibration with modified settings, so equilibration time is not so big
 
 ```
 g_submit -s md.tpr -N short -nolaunch
