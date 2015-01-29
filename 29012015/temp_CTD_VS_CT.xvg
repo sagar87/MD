@@ -1,0 +1,40 @@
+# This file was created Thu Jan 29 16:32:29 2015
+# by the following command:
+# g_energy -f ener.part0001.edr -o temp.xvg 
+#
+# g_energy is part of G R O M A C S:
+#
+# GROwing Monsters And Cloning Shrimps
+#
+@    title "Gromacs Energies"
+@    xaxis  label "Time (ps)"
+@    yaxis  label "(K)"
+@TYPE xy
+@ view 0.15, 0.15, 0.75, 0.85
+@ legend on
+@ legend box on
+@ legend loctype view
+@ legend 0.78, 0.8
+@ legend length 2
+@ s0 legend "Temperature"
+    0.000000  301.560455
+   50.000000  302.988190
+  100.000000  297.293488
+  150.000000  301.998474
+  200.000000  300.564453
+  250.000000  299.351074
+  300.000000  301.244934
+  350.000000  297.474701
+  400.000000  297.721039
+  450.000000  295.971771
+  500.000000  298.586487
+  550.000000  299.995270
+  600.000000  300.473083
+  650.000000  301.694580
+  700.000000  302.425201
+  750.000000  303.779083
+  800.000000  299.946259
+  850.000000  301.179138
+  900.000000  298.869019
+  950.000000  304.282166
+ 1000.000000  300.344299

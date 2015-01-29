@@ -1,0 +1,40 @@
+# This file was created Thu Jan 29 16:33:44 2015
+# by the following command:
+# g_energy -f ener.part0001.edr -o dens.xvg 
+#
+# g_energy is part of G R O M A C S:
+#
+# Glycine aRginine prOline Methionine Alanine Cystine Serine
+#
+@    title "Gromacs Energies"
+@    xaxis  label "Time (ps)"
+@    yaxis  label "(kg/m^3)"
+@TYPE xy
+@ view 0.15, 0.15, 0.75, 0.85
+@ legend on
+@ legend box on
+@ legend loctype view
+@ legend 0.78, 0.8
+@ legend length 2
+@ s0 legend "Density"
+    0.000000  999.404907
+   50.000000  1014.633911
+  100.000000  1016.316467
+  150.000000  1016.025940
+  200.000000  1014.428223
+  250.000000  1014.167542
+  300.000000  1017.458374
+  350.000000  1014.241943
+  400.000000  1014.714600
+  450.000000  1015.862976
+  500.000000  1012.203125
+  550.000000  1017.195862
+  600.000000  1013.669373
+  650.000000  1014.789795
+  700.000000  1015.212341
+  750.000000  1015.659302
+  800.000000  1014.972656
+  850.000000  1015.221252
+  900.000000  1014.845520
+  950.000000  1014.608398
+ 1000.000000  1011.855713

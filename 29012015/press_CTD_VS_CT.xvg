@@ -1,0 +1,40 @@
+# This file was created Thu Jan 29 16:33:15 2015
+# by the following command:
+# g_energy -f ener.part0001.edr -o press.xvg 
+#
+# g_energy is part of G R O M A C S:
+#
+# God Rules Over Mankind, Animals, Cosmos and Such
+#
+@    title "Gromacs Energies"
+@    xaxis  label "Time (ps)"
+@    yaxis  label "(bar)"
+@TYPE xy
+@ view 0.15, 0.15, 0.75, 0.85
+@ legend on
+@ legend box on
+@ legend loctype view
+@ legend 0.78, 0.8
+@ legend length 2
+@ s0 legend "Pressure"
+    0.000000  -3525.567139
+   50.000000  -53.913120
+  100.000000  -278.251801
+  150.000000   90.173523
+  200.000000  -29.366068
+  250.000000   81.938881
+  300.000000  -30.442595
+  350.000000  -49.202015
+  400.000000  -24.084396
+  450.000000  -142.643204
+  500.000000  -140.531998
+  550.000000  -150.018784
+  600.000000  -13.649539
+  650.000000  -17.836264
+  700.000000  146.221329
+  750.000000   89.690956
+  800.000000  -317.834808
+  850.000000  -64.815117
+  900.000000  -128.726379
+  950.000000  -35.000916
+ 1000.000000   58.746719
