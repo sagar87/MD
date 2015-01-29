@@ -218,7 +218,32 @@ ssh owl3
 g_submit -s eq.tpr
 ```
 
-### Run Simulation with old CTD and *NO* vSites and  *uncharged* Termini
+* Run finished in 1h
+
+
+```
+       Time:    38287.880     3829.646      999.8
+                         1h03:49
+                 (ns/day)    (hour/ns)
+Performance:       22.561        1.064
+Finished mdrun on node 0 Thu Jan 29 16:17:36 2015
+```
+
+* Check Equilibration
+
+```
+g_energy -f ener.part0001.edr -o temp.xvg
+g_energy -f ener.part0001.edr -o press.xvg
+g_energy -f ener.part0001.edr -o dens.xvg
+```
+
+![After EQ](https://github.com/sagar87/MD/raw/master/29012015/temp_CTD_VS_CT.xvg_.png)
+
+![After EQ](https://github.com/sagar87/MD/raw/master/29012015/press_CTD_VS_CT.xvg_.png)
+
+![After EQ](https://github.com/sagar87/MD/raw/master/29012015/dens_CTD_VS_CT.xvg_.png)
+
+### Run Simulation with old CTD and NO vSites and uncharged Termini
 
 * Create dir *290115_CTD_NVT_NCT* 
 * Copy template folder into this folder
@@ -248,7 +273,7 @@ mdrun -v -deffnm em
 
 * Check EM
 
-![EM](https://github.com/sagar87/MD/blob/master/29012015/potential_CTD_ORG_NVT_NCT.png)
+![EM](https://github.com/sagar87/MD/raw/master/29012015/potential_CTD_ORG_NVT_NCT.png)
 
 * Run SIM
 
@@ -258,3 +283,9 @@ grompp -f eq.mdp -p topol.top -c em.part0001.gro -o eq.tpr
 ssh owl3
 g_submit -s eq.tpr
 ```
+
+
+### Run Simulation with old CTD and NO vSites and uncharged Termini
+
+
+
