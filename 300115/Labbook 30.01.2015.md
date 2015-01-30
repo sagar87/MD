@@ -1,6 +1,6 @@
 ## 30.01.2015
 
-## Simulation with original CTD, no vSites and uncharged Termini
+### Simulation with original CTD, no vSites and uncharged Termini
 
 * Equilibration was successful
 
@@ -38,3 +38,29 @@ grompp -f sim.mdp -p topol.top -c confout.part0001.gro -o sim.tpr
 ssh owl3
 g_submit -s sim.tpr
 ```
+
+### Analysis of CTD Pymol with vSites and charged Termini
+
+* Simulation was successful
+
+```
+               Core t (s)   Wall t (s)        (%)
+       Time:   217793.170    36387.224      598.5
+                         10h06:27
+                 (ns/day)    (hour/ns)
+Performance:       23.745        1.011
+Finished mdrun on node 0 Fri Jan 30 04:59:05 2015
+```
+
+* Check RMSD (compared to the structure before EM → long chain)
+    * Protein-H
+* Check Root Mean Square fluctuation (RMSF) → Cα 
+    
+```
+g_rms -s ../em/em.tpr -f traj.part0001.xtc 
+g_rmsf -s sim.tpr -f traj.part0001.xtc -o rmsf_CTD_PYM_VT_CT.xvg -oq bfac.pdb
+```
+
+![CTD Pymol VT CT](https://github.com/sagar87/MD/raw/master/300115/rmsd.xvg_.png)
+
+![CTD Pymol VT CTD](https://github.com/sagar87/MD/blob/master/300115/rmsf_CTD_PYM_VT_CT.xvg_.png)
