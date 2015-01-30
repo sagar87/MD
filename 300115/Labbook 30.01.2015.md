@@ -63,7 +63,7 @@ g_rmsf -s sim.tpr -f traj.part0001.xtc -o rmsf_CTD_PYM_VT_CT.xvg -oq bfac.pdb
 
 ![CTD Pymol VT CT](https://github.com/sagar87/MD/raw/master/300115/rmsd.xvg_.png)
 
-![CTD Pymol VT CTD](https://github.com/sagar87/MD/blob/master/300115/rmsf_CTD_PYM_VT_CT.xvg_.png)
+![CTD Pymol VT CTD](https://github.com/sagar87/MD/raw/master/300115/rmsf_CTD_PYM_VT_CT.xvg_.png)
 
 * Analyze secondary strucures
 
@@ -73,7 +73,7 @@ xpm2ps -f ss.xpm
 gv plot.eps
 ```
 
-![Secondary Structures](https://github.com/sagar87/MD/blob/master/300115/plot.eps)
+![Secondary Structures](https://github.com/sagar87/MD/raw/master/300115/plot.eps)
 
 * Check Radius of Gyration and H-bonds
 
@@ -82,7 +82,54 @@ g_gyrate s sim.tpr -f traj.part0001.xtc
 g_hbond -s sim.tpr -f traj.part0001.xtc -num hbond.xvg
 ```
 
-![Radius of Gyration](https://github.com/sagar87/MD/blob/master/300115/gyrate_CTD_PYM_VT_CT.png)
+![Radius of Gyration](https://github.com/sagar87/MD/raw/master/300115/gyrate_CTD_PYM_VT_CT.png)
 
-![H-Bonds](https://github.com/sagar87/MD/blob/master/300115/hbond_CTD_PYM_CT_VT.xvg_.png)
+![H-Bonds](https://github.com/sagar87/MD/raw/master/300115/hbond_CTD_PYM_CT_VT.xvg_.png)
+
+### Analysis of original CTD with vSites and charged Termini
+
+* Simulation was successful
+
+
+```
+               Core t (s)   Wall t (s)        (%)
+       Time:   509136.450    51309.771      992.3
+                         14h15:09
+                 (ns/day)    (hour/ns)
+Performance:       16.839        1.425
+Finished mdrun on node 0 Fri Jan 30 08:08:28 2015
+```
+
+* Check RMSD (compared to the structure before EM → long chain)
+    * Protein-H
+* Check Root Mean Square fluctuation (RMSF) → Cα 
+    
+```
+g_rms -s ../em/em.tpr -f traj.part0001.xtc 
+g_rmsf -s sim.tpr -f traj.part0001.xtc -o rmsf_CTD_PYM_VT_CT.xvg -oq bfac.pdb
+```
+
+![RMSD](https://github.com/sagar87/MD/raw/master/300115/rmsd_CTD_VS_CT.xvg_.png)
+
+![RMSF](https://github.com/sagar87/MD/raw/master/300115/rmsf_CTD_VS_CT.xvg_.png)
+
+* Analyze secondary strucures
+
+```
+do_dssp -s sim.tpr -f traj.part0001.xtc -ver 1
+xpm2ps -f ss.xpm
+gv plot.eps
+```
+
+* Check Radius of Gyration and H-bonds
+
+```
+g_gyrate s sim.tpr -f traj.part0001.xtc
+g_hbond -s sim.tpr -f traj.part0001.xtc -num hbond.xvg
+```
+
+![](https://github.com/sagar87/MD/raw/master/300115/gyrate_CTD_VS_CT.png)
+
+![H-Bonds](https://github.com/sagar87/MD/raw/master/300115/hbond_CTD_PYM_CT_VT.xvg_.png)
+
 
