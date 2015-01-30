@@ -1,0 +1,33 @@
+# This file was created Fri Jan 30 14:24:44 2015
+# by the following command:
+# g_rmsf -s sim.tpr -f traj.part0001.xtc -o rmsf_CTD_VS_CT.xvg -oq bfac.pdb 
+#
+# g_rmsf is part of G R O M A C S:
+#
+# Gromacs Runs On Most of All Computer Systems
+#
+@    title "RMS fluctuation"
+@    xaxis  label "Atom"
+@    yaxis  label "(nm)"
+@TYPE xy
+@ view 0.15, 0.15, 0.75, 0.85
+@ legend on
+@ legend box on
+@ legend loctype view
+@ legend 0.78, 0.8
+@ legend length 2
+@ s0 legend "Temperature"
+    7   0.4839
+   28   0.3751
+   41   0.2739
+   53   0.2548
+   69   0.2657
+   82   0.2721
+   94   0.2776
+  105   0.2755
+  126   0.2688
+  139   0.2678
+  151   0.2359
+  167   0.3019
+  180   0.3979
+  192   0.5402
