@@ -64,3 +64,22 @@ g_rmsf -s sim.tpr -f traj.part0001.xtc -o rmsf_CTD_PYM_VT_CT.xvg -oq bfac.pdb
 ![CTD Pymol VT CT](https://github.com/sagar87/MD/raw/master/300115/rmsd.xvg_.png)
 
 ![CTD Pymol VT CTD](https://github.com/sagar87/MD/blob/master/300115/rmsf_CTD_PYM_VT_CT.xvg_.png)
+
+* Analyze secondary strucures
+
+```
+do_dssp -s sim.tpr -f traj.part0001.xtc -ver 1
+xpm2ps -f ss.xpm
+gv plot.eps
+```
+
+![Secondary Structures](https://github.com/sagar87/MD/blob/master/300115/plot.eps)
+
+* Check Radius of Gyration and H-bonds
+
+```
+g_gyrate s sim.tpr -f traj.part0001.xtc
+g_hbond -s sim.tpr -f traj.part0001.xtc -num hbond.xvg
+```
+
+
