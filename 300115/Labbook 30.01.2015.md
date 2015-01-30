@@ -30,3 +30,11 @@ g_energy -f ener.part0001.edr -o dens.xvg
 
 ![After EQ](https://github.com/sagar87/MD/raw/master/300115/dens_CTD_NVT_NCT.xvg_.png)
 
+* Prepare and start simulation
+
+```
+cp eq/confout.part0001.gro eq/topol.top sim/
+grompp -f sim.mdp -p topol.top -c confout.part0001.gro -o sim.tpr
+ssh owl3
+g_submit -s sim.tpr
+```
