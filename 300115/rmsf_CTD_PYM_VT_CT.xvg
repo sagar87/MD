@@ -1,0 +1,33 @@
+# This file was created Fri Jan 30 10:36:57 2015
+# by the following command:
+# g_rmsf -s sim.tpr -f traj.part0001.xtc -o rmsf_CTD_PYM_VT_CT.xvg -oq bfac.pdb 
+#
+# g_rmsf is part of G R O M A C S:
+#
+# Gromacs Runs One Microsecond At Cannonball Speeds
+#
+@    title "RMS fluctuation"
+@    xaxis  label "Atom"
+@    yaxis  label "(nm)"
+@TYPE xy
+@ view 0.15, 0.15, 0.75, 0.85
+@ legend on
+@ legend box on
+@ legend loctype view
+@ legend 0.78, 0.8
+@ legend length 2
+@ s0 legend "Temperature"
+    7   0.4196
+   28   0.3136
+   41   0.2552
+   53   0.2579
+   69   0.1963
+   82   0.2536
+   94   0.2464
+  105   0.2722
+  126   0.2504
+  139   0.2524
+  151   0.2676
+  167   0.3135
+  180   0.3895
+  192   0.5431
