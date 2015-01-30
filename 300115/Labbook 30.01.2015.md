@@ -130,6 +130,5 @@ g_hbond -s sim.tpr -f traj.part0001.xtc -num hbond.xvg
 
 ![](https://github.com/sagar87/MD/raw/master/300115/gyrate_CTD_VS_CT.png)
 
-![H-Bonds](https://github.com/sagar87/MD/raw/master/300115/hbond_CTD_PYM_CT_VT.xvg_.png)
-
+![H-bonds](https://github.com/sagar87/MD/raw/master/300115/hbond_CTD_VS_CT.xvg_.png)
 
