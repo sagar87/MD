@@ -82,4 +82,7 @@ g_gyrate s sim.tpr -f traj.part0001.xtc
 g_hbond -s sim.tpr -f traj.part0001.xtc -num hbond.xvg
 ```
 
+![Radius of Gyration](https://github.com/sagar87/MD/blob/master/300115/gyrate_CTD_PYM_VT_CT.png)
+
+![H-Bonds](https://github.com/sagar87/MD/blob/master/300115/hbond_CTD_PYM_CT_VT.xvg_.png)
 
