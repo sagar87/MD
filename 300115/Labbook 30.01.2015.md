@@ -1,4 +1,4 @@
-## 30.01.2015
+# Labbook 30.01.2015
 
 ### Simulation with original CTD, no vSites and uncharged Termini
 
@@ -15,6 +15,7 @@ Finished mdrun on node 0 Fri Jan 30 01:16:25 2015
 ``` 
 
 * Check Equilibration
+
 
 ```
 g_energy -f ener.part0001.edr -o temp.xvg
@@ -43,6 +44,7 @@ g_submit -s sim.tpr
 
 * Simulation was successful
 
+
 ```
                Core t (s)   Wall t (s)        (%)
        Time:   217793.170    36387.224      598.5
@@ -56,6 +58,7 @@ Finished mdrun on node 0 Fri Jan 30 04:59:05 2015
     * Protein-H
 * Check Root Mean Square fluctuation (RMSF) → Cα 
     
+
 ```
 g_rms -s ../em/em.tpr -f traj.part0001.xtc 
 g_rmsf -s sim.tpr -f traj.part0001.xtc -o rmsf_CTD_PYM_VT_CT.xvg -oq bfac.pdb
@@ -86,7 +89,9 @@ g_hbond -s sim.tpr -f traj.part0001.xtc -num hbond.xvg
 
 ![H-Bonds](https://github.com/sagar87/MD/raw/master/300115/hbond_CTD_PYM_CT_VT.xvg_.png)
 
+
 ### Analysis of original CTD with vSites and charged Termini
+
 
 * Simulation was successful
 
