@@ -137,3 +137,80 @@ g_hbond -s sim.tpr -f traj.part0001.xtc -num hbond.xvg
 
 ![H-bonds](https://github.com/sagar87/MD/raw/master/300115/hbond_CTD_VS_CT.xvg_.png)
 
+### Start Long Simulations with equilibrated original CTD NVT NCT
+
+* Create a bash script that automates folder creation 
+* Script takes three variables from command line
+    * $1 the path to the folder where the simulation folders should be created
+    * $2 the path to the equilibration folder where the topology and the gro file are 
+    * $3 mdp file (which has to be in the folder of the script)
+
+```
+mkdir $1/03
+cp -v $3 $1/03
+cp -v $2/topol.top $2/confout.part0001.gro $1/03
+cp -R -v $2/charmm22star.ff $1/03
+
+mkdir $1/04
+cp -v $3 $1/04
+cp -v $2/topol.top $2/confout.part0001.gro $1/04
+cp -R -v $2/charmm22star.ff $1/04
+
+mkdir $1/05
+cp -v $3 $1/05
+cp -v $2/topol.top $2/confout.part0001.gro $1/05
+cp -R -v $2/charmm22star.ff $1/05
+
+mkdir $1/06
+cp -v $3 $1/06
+cp -v $2/topol.top $2/confout.part0001.gro $1/06
+cp -R -v $2/charmm22star.ff $1/06
+
+mkdir $1/07
+cp -v $3 $1/07
+cp -v $2/topol.top $2/confout.part0001.gro $1/07
+cp -R -v $2/charmm22star.ff $1/07
+
+mkdir $1/08
+cp -v $3 $1/08
+cp -v $2/topol.top $2/confout.part0001.gro $1/08
+cp -R -v $2/charmm22star.ff $1/08
+
+mkdir $1/09
+cp -v $3 $1/09
+cp -v $2/topol.top $2/confout.part0001.gro $1/09
+cp -R -v $2/charmm22star.ff $1/09
+
+mkdir $1/10
+cp -v $3 $1/10
+cp -v $2/topol.top $2/confout.part0001.gro $1/10
+cp -R -v $2/charmm22star.ff $1/10
+
+echo '##############################################'
+echo '##############################################'
+echo '##############################################'
+echo 'Copying done'
+echo 'Proceed with gromping'
+pause 'Press [Enter] key to continue...'
+echo '##############################################'
+echo '##############################################'
+echo '##############################################'
+
+
+grompp -f $1/01/sim.mdp -p $1/01/topol.top -c $1/01/confout.part0001.gro -o $1/01/sim.tpr -maxwarn 1
+grompp -f $1/02/sim.mdp -p $1/02/topol.top -c $1/02/confout.part0001.gro -o $1/02/sim.tpr -maxwarn 1
+grompp -f $1/03/sim.mdp -p $1/03/topol.top -c $1/03/confout.part0001.gro -o $1/03/sim.tpr -maxwarn 1
+grompp -f $1/04/sim.mdp -p $1/04/topol.top -c $1/04/confout.part0001.gro -o $1/04/sim.tpr -maxwarn 1
+grompp -f $1/05/sim.mdp -p $1/04/topol.top -c $1/05/confout.part0001.gro -o $1/05/sim.tpr -maxwarn 1
+grompp -f $1/06/sim.mdp -p $1/04/topol.top -c $1/06/confout.part0001.gro -o $1/06/sim.tpr -maxwarn 1
+grompp -f $1/07/sim.mdp -p $1/04/topol.top -c $1/07/confout.part0001.gro -o $1/07/sim.tpr -maxwarn 1
+grompp -f $1/08/sim.mdp -p $1/04/topol.top -c $1/08/confout.part0001.gro -o $1/08/sim.tpr -maxwarn 1
+grompp -f $1/09/sim.mdp -p $1/04/topol.top -c $1/09/confout.part0001.gro -o $1/09/sim.tpr -maxwarn 1
+grompp -f $1/10/sim.mdp -p $1/04/topol.top -c $1/10/confout.part0001.gro -o $1/10/sim.tpr -maxwarn 1
+```
+
+* Use the script to generate all folders
+
+```
+~/290115_CTD_NVT_NCT/sim
+```
